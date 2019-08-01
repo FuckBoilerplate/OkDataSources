@@ -1,0 +1,11 @@
+framework module OkDataSource {
+  umbrella header "OkDataSource.h"
+
+  export *
+  module * { export * }
+}
+
+module OkDataSource.Swift {
+    header "OkDataSource-Swift.h"
+    requires objc
+}

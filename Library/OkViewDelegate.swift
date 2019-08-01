@@ -12,7 +12,7 @@ open class OkViewDelegate<T: OkViewDataSource>: NSObject {
     
     open var dataSource: T
     
-    open let onItemClicked: (_ item: T.ItemType, _ position: Int) -> Void
+    public let onItemClicked: (_ item: T.ItemType, _ position: Int) -> Void
     open var onRefreshed: ((_ refreshControl: UIRefreshControl) -> Void)?
     open var onPagination: ((_ item: T.ItemType) -> Void)?
     open var triggerTreshold: Int = 1

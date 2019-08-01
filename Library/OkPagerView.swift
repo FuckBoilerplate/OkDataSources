@@ -63,9 +63,9 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     pageViewController.dataSource = self
     pageViewController.delegate = self
-    self.parentViewController?.addChildViewController(pageViewController)
+    self.parentViewController?.addChild(pageViewController)
     addPagerView(pageViewController.view)
-    pageViewController.didMove(toParentViewController: self.parentViewController)
+    pageViewController.didMove(toParent: self.parentViewController)
     pageControl?.currentPage = 0
 
     for view in pageViewController.view.subviews {
@@ -79,13 +79,13 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
     pagerView.frame = self.bounds
     self.addSubview(pagerView)
 
-    let constTop = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: pagerView, attribute: NSLayoutAttribute.top, multiplier: 1, constant: 0)
+    let constTop = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pagerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
 
-    let constBottom = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: pagerView, attribute: NSLayoutAttribute.bottom, multiplier: 1, constant: 0)
+    let constBottom = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pagerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0)
 
-    let constLeft = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.leading, relatedBy: NSLayoutRelation.equal, toItem: pagerView, attribute: NSLayoutAttribute.leading, multiplier: 1, constant: 0)
+    let constLeft = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.leading, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pagerView, attribute: NSLayoutConstraint.Attribute.leading, multiplier: 1, constant: 0)
 
-    let constRight = NSLayoutConstraint(item: self, attribute: NSLayoutAttribute.trailing, relatedBy: NSLayoutRelation.equal, toItem: pagerView, attribute: NSLayoutAttribute.trailing, multiplier: 1, constant: 0)
+    let constRight = NSLayoutConstraint(item: self, attribute: NSLayoutConstraint.Attribute.trailing, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pagerView, attribute: NSLayoutConstraint.Attribute.trailing, multiplier: 1, constant: 0)
 
     self.addConstraints([constTop, constBottom, constLeft, constRight])
   }
@@ -123,7 +123,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
       && currentIndex < getNumberOfPages() {
       self.pageViewController.setViewControllers(
         [getViewControllerAtIndex(currentIndex)!],
-        direction: UIPageViewControllerNavigationDirection.forward,
+        direction: UIPageViewController.NavigationDirection.forward,
         animated: false,
         completion: nil)
 
@@ -145,7 +145,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
       return
     }
 
-    let direction: UIPageViewControllerNavigationDirection = currentIndex < index ? .forward : .reverse
+    let direction: UIPageViewController.NavigationDirection = currentIndex < index ? .forward : .reverse
 
     guard let viewController = getViewControllerAtIndex(index) else {
       print("Method getViewControllerAtIndex(\(index)) is returning nil")
@@ -203,7 +203,7 @@ open class OkPagerView: UIView, UIPageViewControllerDataSource, UIPageViewContro
   public func scrollViewDidScroll(_ scrollView: UIScrollView) {
     let direction = scrollView.contentOffset.x > frame.size.width ? 1 : -1
     let point = scrollView.contentOffset
-    let percentComplete: CGFloat = fabs(point.x - frame.size.width)/frame.size.width
+    let percentComplete: CGFloat = abs(point.x - frame.size.width)/frame.size.width
 
     notifyAnimationDelegates(percentComplete: percentComplete, direction: direction)
   }
