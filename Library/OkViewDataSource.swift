@@ -17,7 +17,7 @@ public protocol OkViewDataSource {
 
 public extension OkViewDataSource {
     
-    public func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType {
+    func itemAtIndexPath(_ indexPath: IndexPath) -> ItemType {
         return items[(indexPath as NSIndexPath).item]
     }
 }

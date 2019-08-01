@@ -15,5 +15,5 @@ public protocol OkViewCell {
 }
 
 public extension OkViewCell {
-    public static var identifier: String { return String(describing: Self.self) }
+    static var identifier: String { return String(describing: Self.self) }
 }
