@@ -8,18 +8,19 @@
 
 Pod::Spec.new do |s|
   s.name         = "OkDataSources"
-  s.version      = "1.3.3"
+  s.version      = "1.4.0"
   s.summary      = "Wrappers for iOS TableView and CollectionView DataSources to simplify its api at a minimum. Also it has a cool PagerView and SlidingTabs!."
 
-  s.homepage     = "https://github.com/FuckBoilerplate/OkDataSources"
+  s.homepage     = "https://github.com/pdecarcer/OkDataSources"
   s.license = { :type => "MIT", :file => "LICENSE" }
 
-  s.author             = { "Roberto Frontado" => "robertofrontado@gmail.com" }
-  s.source           = { :git => "https://github.com/FuckBoilerplate/OkDataSources.git", :tag => s.version.to_s }
-  s.social_media_url   = "https://github.com/FuckBoilerplate"
+  s.author             = { "Pablo de Carcer" => "pdecarcer@gmail.com" }
+  s.source           = { :git => "https://github.com/pdecarcer/OkDataSources.git", :tag => s.version.to_s }
+  s.social_media_url   = "https://github.com/pdecarcer"
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '11.0'
   s.requires_arc = true
+  s.swift_version = "5.0"
 
   s.default_subspec = "Core"
 
@@ -30,7 +31,7 @@ Pod::Spec.new do |s|
   s.subspec "RxSwift" do |ss|
     ss.source_files = "Library/RxSwift/*.swift"
     ss.dependency "OkDataSources/Core"
-    ss.dependency "RxSwift", "4.2.0"
+    ss.dependency "RxSwift", "5.0"
   end
   
 end

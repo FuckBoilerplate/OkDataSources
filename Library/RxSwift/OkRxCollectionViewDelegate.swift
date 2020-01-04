@@ -39,7 +39,7 @@ public class OkRxCollectionViewDelegate<T: OkViewDataSource>: OkRxViewDelegate<T
                 self.dataSource.items.removeAll()
                 self.dataSource.items.append(contentsOf: items)
                 self.collectionView.reloadData()
-        })
+            })
     }
     
     // MARK: UICollectionViewDelegate

@@ -4,27 +4,17 @@
 [![Language](https://img.shields.io/badge/language-swift-orange.svg?style=flat)](https://developer.apple.com/swift)
 
 # OkDataSources
-Wrappers for iOS TableView and CollectionView DataSources to simply its api at a minimum. Also it has a cool PagerView and SlidingTabs!
+Wrappers for iOS TableView and CollectionView DataSources to simply its api at a minimum. Also it has a cool PagerView and SlidingTabs! Compatibility with swift 5.0
 
 ## Setup
 Add OkDataSources pod to the podfile
 
 ```swift
+source 'https://github.com/pdecarcer/OkDataSources.git'
 pod 'OkDataSources'
 ```
 
-For RxSwift extension, this project will include it as a dependency.  So you can do this via CocoaPods subspecs.
 
-```swift
-pod 'OkDataSources'
-pod 'OkDataSources/RxSwift'
-```
-
-OkDataSources also is available using [Carthage](https://github.com/Carthage/Carthage). To install it add the following dependency to your `Cartfile`:
-
-```swift
-github "robertofrontado/OkDataSources"
-```
 
 ## Usage
 
@@ -301,3 +291,4 @@ public protocol OkSlidingTabsDelegate {
  
 ##Credits
 This approach is based on https://github.com/Karumi/BothamUI
+Thanks for the base of this https://github.com/FuckBoilerplate
